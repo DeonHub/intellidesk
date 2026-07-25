@@ -69,7 +69,7 @@ export default function Chatbot() {
               <strong>IntelliDesk Assistant</strong>
               <p className="muted">
                 {available === false
-                  ? "Not available — add GEMINI_API_KEY on the server"
+                  ? "Not available — add NVIDIA_API_KEY on the server"
                   : "AI help · human tickets when needed"}
               </p>
             </div>

@@ -6,7 +6,7 @@ Many organizations struggle with slow, unstructured IT support. **IntelliDesk** 
 
 1. Self-service ticket submission and tracking  
 2. Role-based workflows for technicians, managers, and administrators  
-3. Optional AI assistance (Google Gemini) for common troubleshooting  
+3. Optional AI assistance (NVIDIA NIM) for common troubleshooting  
 4. Human intervention for complex or escalated issues  
 
 **Case study focus:** staff face daily IT problems (network, email, accounts, software). IntelliDesk shortens time-to-resolution by guiding users quickly and routing remaining work to the right humans.
@@ -28,7 +28,7 @@ Browser (Netlify)
 Express API (Render / local)
     │
     ├── MongoDB (Atlas / local)
-    └── Gemini API (optional)
+    └── NVIDIA NIM API (optional)
 ```
 
 - **Frontend:** React SPA with client-side routing  
@@ -54,9 +54,9 @@ Escalation path: any active state → `escalated` (priority raised, manager noti
 ### 5.2 AI + human model
 
 1. User asks the chatbot about a common issue  
-2. If Gemini is configured, AI returns step-by-step guidance  
-3. If Gemini is **not** configured or fails, the API responds that the chatbot is **not available** and the user should open a ticket  
-4. On ticket creation, when Gemini is available, an AI suggested plan is stored for technicians  
+2. If NVIDIA is configured, AI returns step-by-step guidance  
+3. If NVIDIA is **not** configured or fails, the API responds that the chatbot is **not available** and the user should open a ticket  
+4. On ticket creation, when NVIDIA is available, an AI suggested plan is stored for technicians  
 
 ### 5.3 Feedback
 
@@ -144,7 +144,7 @@ Base URL: `VITE_API_URL` (local default `http://localhost:4000`)
 2. Deploy backend to Render with env vars from `backend/.env.example`  
 3. Deploy frontend to Netlify with `VITE_API_URL` pointing at the API  
 4. Add your Netlify URL to `CORS_ORIGINS`  
-5. Optionally add `GEMINI_API_KEY` from [Google AI Studio](https://aistudio.google.com/apikey)  
+5. Optionally add `NVIDIA_API_KEY` from [build.nvidia.com](https://build.nvidia.com)  
 
 ## 10. Testing checklist
 

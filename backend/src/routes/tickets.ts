@@ -8,7 +8,7 @@ import { User } from "../models/User";
 import { AuthRequest, authenticate, authorize } from "../middleware/auth";
 import { generateTicketNumber } from "../utils/ticketNumber";
 import { computeSlaDueAt } from "../utils/sla";
-import { suggestTicketResolution } from "../services/gemini";
+import { suggestTicketResolution } from "../services/nvidia";
 
 const router = Router();
 

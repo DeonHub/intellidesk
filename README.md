@@ -12,7 +12,7 @@
 | Backend | Node.js + Express + TypeScript (host on **Render** or **Vercel**) |
 | Database | **MongoDB** (Atlas recommended) |
 | Auth | JWT + bcrypt |
-| AI chatbot | Google Gemini API (optional) |
+| AI chatbot | NVIDIA NIM API (optional) |
 
 No Docker is required. Frontend and backend are separate apps.
 
@@ -93,8 +93,9 @@ npm run seed
 | `JWT_SECRET` | **Yes** | Secret for signing JWTs |
 | `JWT_EXPIRES_IN` | No | Token lifetime (default `7d`) |
 | `CORS_ORIGINS` | No | Comma-separated allowed origins |
-| `GEMINI_API_KEY` | No | Google AI Studio key; without it chat says **not available** |
-| `GEMINI_MODEL` | No | Default `gemini-2.0-flash` |
+| `NVIDIA_API_KEY` | No | NVIDIA NIM key from [build.nvidia.com](https://build.nvidia.com); without it chat says **not available** |
+| `NVIDIA_MODEL` | No | Default `meta/llama-3.1-8b-instruct` |
+| `NVIDIA_MAX_TOKENS` | No | Default `512` |
 | `SEED_ON_START` | No | `true`/`false` (default seeds on start) |
 | `NODE_ENV` | No | `development` or `production` |
 

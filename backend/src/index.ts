@@ -12,7 +12,7 @@ import userRoutes from "./routes/users";
 import feedbackRoutes from "./routes/feedback";
 import reportRoutes from "./routes/reports";
 import chatRoutes from "./routes/chat";
-import { isGeminiAvailable } from "./services/gemini";
+import { isNvidiaAvailable } from "./services/nvidia";
 
 const app = express();
 const PORT = Number(process.env.PORT) || 4000;
@@ -48,7 +48,7 @@ app.get("/", (_req, res) => {
 app.get("/api/health", (_req, res) => {
   res.json({
     status: "ok",
-    gemini: isGeminiAvailable() ? "available" : "not available",
+    nvidia: isNvidiaAvailable() ? "available" : "not available",
     timestamp: new Date().toISOString(),
   });
 });
@@ -82,7 +82,7 @@ async function start() {
   app.listen(PORT, () => {
     console.log(`IntelliDesk API running on http://localhost:${PORT}`);
     console.log(
-      `Gemini chatbot: ${isGeminiAvailable() ? "available" : "not available"}`
+      `NVIDIA chatbot: ${isNvidiaAvailable() ? "available" : "not available"}`
     );
   });
 }

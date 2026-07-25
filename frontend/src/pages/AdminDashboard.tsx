@@ -200,7 +200,7 @@ export default function AdminDashboard() {
             <li>Restrict CORS_ORIGINS to your Netlify URL.</li>
             <li>Keep SEED_ON_START=false after first seed in production.</li>
             <li>Store MongoDB credentials only in environment variables.</li>
-            <li>Gemini key is optional; chat reports “not available” without it.</li>
+            <li>NVIDIA_API_KEY is optional; chat reports “not available” without it.</li>
           </ul>
         </div>
       </div>

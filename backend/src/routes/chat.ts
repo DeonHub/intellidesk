@@ -1,15 +1,15 @@
 import { Router, Response } from "express";
 import { authenticate, AuthRequest } from "../middleware/auth";
-import { chatWithGemini, isGeminiAvailable } from "../services/gemini";
+import { chatWithNvidia, isNvidiaAvailable } from "../services/nvidia";
 
 const router = Router();
 
 router.get("/status", (_req, res: Response) => {
   res.json({
-    available: isGeminiAvailable(),
-    message: isGeminiAvailable()
-      ? "Gemini chatbot is available"
-      : "AI chatbot is not available. Add GEMINI_API_KEY to enable it.",
+    available: isNvidiaAvailable(),
+    message: isNvidiaAvailable()
+      ? "NVIDIA chatbot is available"
+      : "AI chatbot is not available. Add NVIDIA_API_KEY to enable it.",
   });
 });
 
@@ -21,7 +21,7 @@ router.post("/", authenticate, async (req: AuthRequest, res: Response) => {
       return;
     }
 
-    const result = await chatWithGemini(message, history || []);
+    const result = await chatWithNvidia(message, history || []);
     res.json(result);
   } catch (err) {
     console.error(err);

@@ -22,8 +22,9 @@ Repository should contain `frontend/` and `backend/` (no `.env` files).
 | `CORS_ORIGINS` | Your Netlify URL, e.g. `https://something.netlify.app` |
 | `SEED_ON_START` | `true` once, then `false` |
 | `USE_IN_MEMORY_MONGO` | `false` |
-| `GEMINI_API_KEY` | Optional |
-| `GEMINI_MODEL` | `gemini-2.0-flash` |
+| `NVIDIA_API_KEY` | Optional — from [build.nvidia.com](https://build.nvidia.com) |
+| `NVIDIA_MODEL` | `meta/llama-3.1-8b-instruct` |
+| `NVIDIA_MAX_TOKENS` | `512` |
 | `NODE_ENV` | `production` |
 
 5. Deploy → copy the service URL (e.g. `https://intellidesk-api.onrender.com`)
