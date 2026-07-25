@@ -1,0 +1,34 @@
+# Render Blueprint — deploy the IntelliDesk API
+# Dashboard: https://dashboard.render.com
+# After first deploy, set real MONGODB_URI (Atlas) and turn SEED_ON_START off.
+
+services:
+  - type: web
+    name: intellidesk-api
+    runtime: node
+    rootDir: backend
+    plan: free
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: MONGODB_URI
+        sync: false
+      - key: JWT_SECRET
+        generateValue: true
+      - key: JWT_EXPIRES_IN
+        value: 7d
+      - key: CORS_ORIGINS
+        sync: false
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: GEMINI_MODEL
+        value: gemini-2.0-flash
+      - key: SEED_ON_START
+        value: "true"
+      - key: USE_IN_MEMORY_MONGO
+        value: "false"
