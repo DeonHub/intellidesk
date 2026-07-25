@@ -1,7 +1,7 @@
 import { Router, Response } from "express";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
-import { User } from "../models/User";
+import { IUser, User } from "../models/User";
 import { AuthRequest, authenticate } from "../middleware/auth";
 
 const router = Router();
@@ -14,7 +14,7 @@ function signToken(userId: string): string {
   });
 }
 
-function publicUser(user: InstanceType<typeof User>) {
+function publicUser(user: IUser) {
   return {
     id: String(user._id),
     name: user.name,

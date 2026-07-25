@@ -1,5 +1,5 @@
 import { Router, Response } from "express";
-import crypto from "crypto";
+import * as crypto from "crypto";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import { Ticket, TicketPriority, TicketStatus } from "../models/Ticket";
@@ -269,7 +269,7 @@ router.patch(
         if (status === "resolved") ticket.resolvedAt = new Date();
         if (status === "closed") ticket.closedAt = new Date();
         if (status === "in_progress" && !ticket.assignedTo) {
-          ticket.assignedTo = req.user!._id as typeof ticket.assignedTo;
+          ticket.assignedTo = req.user!._id;
         }
       }
 
